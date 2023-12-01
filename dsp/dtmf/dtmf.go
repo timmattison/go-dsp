@@ -1,7 +1,7 @@
 package dtmf
 
 import (
-	"github.com/samuel/go-dsp/dsp"
+	"github.com/timmattison/go-dsp/dsp"
 )
 
 var (
