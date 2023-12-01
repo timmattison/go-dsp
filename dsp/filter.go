@@ -44,8 +44,8 @@ func NewComplexIIRFilter32(bCoef, aCoef []float32) *ComplexIIRFilter32 {
 		aCoef[i+1] = c / aCoef[0]
 	}
 	return &ComplexIIRFilter32{
-		bCoef: rtoc32(bCoef),
-		aCoef: rtoc32(aCoef),
+		bCoef: Rtoc32(bCoef),
+		aCoef: Rtoc32(aCoef),
 		pIn:   make([]complex64, len(bCoef)-1),
 		pOut:  make([]complex64, len(bCoef)-1),
 	}
@@ -62,8 +62,8 @@ func NewComplexIIRFilter(bCoef, aCoef []float64) *ComplexIIRFilter {
 		aCoef[i+1] = c / aCoef[0]
 	}
 	return &ComplexIIRFilter{
-		bCoef: rtoc(bCoef),
-		aCoef: rtoc(aCoef),
+		bCoef: Rtoc(bCoef),
+		aCoef: Rtoc(aCoef),
 		pIn:   make([]complex128, len(bCoef)-1),
 		pOut:  make([]complex128, len(bCoef)-1),
 	}

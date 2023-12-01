@@ -20,10 +20,8 @@ type Rotate90Filter struct {
 }
 
 func (fi *Rotate90Filter) Filter(samples []complex64) []complex64 {
-	return rotate90FilterAsm(fi, samples)
+	return rotate90Filter(fi, samples)
 }
-
-func rotate90FilterAsm(fi *Rotate90Filter, samples []complex64) []complex64
 
 func rotate90Filter(fi *Rotate90Filter, samples []complex64) []complex64 {
 	for i := 0; i < len(samples); i += 4 {
@@ -38,10 +36,8 @@ type I32Rotate90Filter struct {
 }
 
 func (fi *I32Rotate90Filter) Filter(samples []int32) []int32 {
-	return i32Rotate90FilterAsm(fi, samples)
+	return i32Rotate90Filter(fi, samples)
 }
-
-func i32Rotate90FilterAsm(fi *I32Rotate90Filter, samples []int32) []int32
 
 func i32Rotate90Filter(fi *I32Rotate90Filter, samples []int32) []int32 {
 	for i := 0; i < len(samples); i += 8 {
@@ -53,7 +49,7 @@ func i32Rotate90Filter(fi *I32Rotate90Filter, samples []int32) []int32 {
 	return samples
 }
 
-func rtoc(r []float64) []complex128 {
+func Rtoc(r []float64) []complex128 {
 	c := make([]complex128, len(r))
 	for i, v := range r {
 		c[i] = complex(v, 0)
@@ -61,7 +57,7 @@ func rtoc(r []float64) []complex128 {
 	return c
 }
 
-func rtoc32(r []float32) []complex64 {
+func Rtoc32(r []float32) []complex64 {
 	c := make([]complex64, len(r))
 	for i, v := range r {
 		c[i] = complex(v, 0)

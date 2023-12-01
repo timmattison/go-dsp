@@ -8,10 +8,8 @@ type LowPassDownsampleComplexFilter struct {
 }
 
 func (fi *LowPassDownsampleComplexFilter) Filter(samples []complex64) []complex64 {
-	return lowPassDownsampleComplexFilterAsm(fi, samples)
+	return lowPassDownsampleComplexFilter(fi, samples)
 }
-
-func lowPassDownsampleComplexFilterAsm(fi *LowPassDownsampleComplexFilter, samples []complex64) []complex64
 
 func lowPassDownsampleComplexFilter(fi *LowPassDownsampleComplexFilter, samples []complex64) []complex64 {
 	i2 := 0
@@ -38,10 +36,8 @@ type LowPassDownsampleRationalFilter struct {
 }
 
 func (fi *LowPassDownsampleRationalFilter) Filter(samples []float32) []float32 {
-	return lowPassDownsampleRationalFilterAsm(fi, samples)
+	return lowPassDownsampleRationalFilter(fi, samples)
 }
-
-func lowPassDownsampleRationalFilterAsm(fi *LowPassDownsampleRationalFilter, samples []float32) []float32
 
 func lowPassDownsampleRationalFilter(fi *LowPassDownsampleRationalFilter, samples []float32) []float32 {
 	i2 := 0

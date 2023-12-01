@@ -28,11 +28,11 @@ func TriangleWindowF32(output []float32) {
 }
 
 func HammingWindow(output []float64) {
-	window(output, []float64{0.53836, 1 - 0.53836})
+	Window(output, []float64{0.53836, 1 - 0.53836})
 }
 
 func HammingWindowF32(output []float32) {
-	windowF32(output, []float64{0.53836, 1 - 0.53836})
+	WindowF32(output, []float64{0.53836, 1 - 0.53836})
 }
 
 func HanningWindow(output []float64) {
@@ -49,23 +49,23 @@ func HanningWindowF32(output []float32) {
 
 func BlackmanWindow(output []float64) {
 	a := 0.16
-	window(output, []float64{(1.0 - a) / 2.0, 1.0 / 2.0, a / 2.0})
+	Window(output, []float64{(1.0 - a) / 2.0, 1.0 / 2.0, a / 2.0})
 }
 
 func BlackmanWindowF32(output []float32) {
 	a := 0.16
-	windowF32(output, []float64{(1.0 - a) / 2.0, 1.0 / 2.0, a / 2.0})
+	WindowF32(output, []float64{(1.0 - a) / 2.0, 1.0 / 2.0, a / 2.0})
 }
 
 func NuttallWindow(output []float64) {
-	window(output, []float64{0.355768, 0.487396, 0.144232, 0.012604})
+	Window(output, []float64{0.355768, 0.487396, 0.144232, 0.012604})
 }
 
 func NuttallWindowF32(output []float32) {
-	windowF32(output, []float64{0.355768, 0.487396, 0.144232, 0.012604})
+	WindowF32(output, []float64{0.355768, 0.487396, 0.144232, 0.012604})
 }
 
-func window(output []float64, a []float64) {
+func Window(output []float64, a []float64) {
 	if len(a) < 1 || len(a) > 4 {
 		panic("invalid window length " + strconv.Itoa(len(a)))
 	}
@@ -86,7 +86,7 @@ func window(output []float64, a []float64) {
 	}
 }
 
-func windowF32(output []float32, a []float64) {
+func WindowF32(output []float32, a []float64) {
 	if len(a) < 1 || len(a) > 4 {
 		panic("invalid window length " + strconv.Itoa(len(a)))
 	}
